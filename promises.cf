@@ -79,48 +79,6 @@ body common control
 
 
 
-bundle common cfengine_stdlib
-{
-  vars:
-    cfengine_3_4::
-      "inputs" slist => { "libraries/cfengine_stdlib.cf" };
-    cfengine_3_5::
-      "inputs" slist => {
-                          "lib/3.5/paths.cf",
-                          "lib/3.5/common.cf",
-                          "lib/3.5/commands.cf",
-                          "lib/3.5/packages.cf",
-                          "lib/3.5/files.cf",
-                          "lib/3.5/services.cf",
-                          "lib/3.5/processes.cf",
-                          "lib/3.5/storage.cf",
-                          "lib/3.5/databases.cf",
-                          "lib/3.5/monitor.cf",
-                          "lib/3.5/guest_environments.cf",
-                          "lib/3.5/bundles.cf",
-      };
-
-    !(cfengine_3_4||cfengine_3_5)::
-      "inputs" slist => {
-                          "$(sys.local_libdir)/paths.cf",
-                          "$(sys.local_libdir)/common.cf",
-                          "$(sys.local_libdir)/commands.cf",
-                          "$(sys.local_libdir)/packages.cf",
-                          "$(sys.local_libdir)/files.cf",
-                          "$(sys.local_libdir)/services.cf",
-                          "$(sys.local_libdir)/processes.cf",
-                          "$(sys.local_libdir)/storage.cf",
-                          "$(sys.local_libdir)/databases.cf",
-                          "$(sys.local_libdir)/monitor.cf",
-                          "$(sys.local_libdir)/guest_environments.cf",
-                          "$(sys.local_libdir)/bundles.cf",
-      };
-
-  reports:
-    verbose_mode::
-      "$(this.bundle): defining inputs='$(inputs)'";
-}
-
 ###############################################################################
 #
 # bundle agent service_catalogue
