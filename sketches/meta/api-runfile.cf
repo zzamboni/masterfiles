@@ -1,4 +1,35 @@
+
+
 # environment common bundles
+
+# environment 092b04a40fdd4cb8bfdb685f2c4a0328
+bundle common 092b04a40fdd4cb8bfdb685f2c4a0328
+{
+  vars:
+      "activated" string => "--'activated' value passed as a class function--";
+      "env_vars" slist => { "activated", "test", "verbose" };
+      "test" string => "";
+      "verbose" string => "";
+  classes:
+      "runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated" and => { classmatch("cfengine_3") };
+      "runenv_092b04a40fdd4cb8bfdb685f2c4a0328_test" expression => "!any";
+      "runenv_092b04a40fdd4cb8bfdb685f2c4a0328_verbose" expression => "!any";
+}
+
+# environment f2a5cdf7b92bab5571c24172112c6fa7
+bundle common f2a5cdf7b92bab5571c24172112c6fa7
+{
+  vars:
+      "activated" string => "--'activated' value passed as a class function--";
+      "env_vars" slist => { "activated", "test", "verbose" };
+      "test" string => "";
+      "verbose" string => "";
+  classes:
+      "runenv_f2a5cdf7b92bab5571c24172112c6fa7_activated" and => { classmatch("am_policy_hub") };
+      "runenv_f2a5cdf7b92bab5571c24172112c6fa7_test" expression => "!any";
+      "runenv_f2a5cdf7b92bab5571c24172112c6fa7_verbose" expression => "!any";
+}
+
 
 # activation data
 bundle common cfsketch_g
@@ -6,17 +37,126 @@ bundle common cfsketch_g
   vars:
       # Files that need to be loaded for the activated sketches and
       # their dependencies.
-      "inputs" slist => { "cf_null" };
+      "inputs" slist => { "sketches/libraries/dclib/library.cf", "sketches/utilities/vcs_mirror/main.cf", "sketches/cloud/cloud_common/library.cf", "sketches/cloud/aws_s3/main.cf", "sketches/utilities/triggers_github/github.cf", "sketches/libraries/dclib-3.5.0/library.cf", "sketches/utilities/staging/main.cf", "sketches/utilities/triggers_jenkins/jenkins.cf", "sketches/package_management/packages_installed/main.cf", "sketches/demo/simpleapplication/balance.cf", "sketches/cloud/openstack/main.cf", "sketches/cloud/vmware/main.cf", "sketches/cloud/aws_ec2/main.cf", "sketches/demo/simpleapplication-deploy/deploy.cf" };
 }
 
 bundle agent cfsketch_run
 {
   vars:
 
+      # array 'metadata' from definition sketch metadata, activation __Deploy_demo_site_001_Data_Triggers_Github_github
+      "__Deploy_demo_site_001_Data_Triggers_Github_github_metadata[activation][identifier]" string => "Deploy demo site";
+      "__Deploy_demo_site_001_Data_Triggers_Github_github_metadata[activation][timestamp]" string => "1381381059";
+      "__Deploy_demo_site_001_Data_Triggers_Github_github_metadata[api][branch][type]" string => "string";
+      "__Deploy_demo_site_001_Data_Triggers_Github_github_metadata[api][metadata][type]" string => "metadata";
+      "__Deploy_demo_site_001_Data_Triggers_Github_github_metadata[api][netrc][type]" string => "string";
+      "__Deploy_demo_site_001_Data_Triggers_Github_github_metadata[api][runenv][type]" string => "environment";
+      "__Deploy_demo_site_001_Data_Triggers_Github_github_metadata[api][s3_bucket][type]" string => "string";
+      "__Deploy_demo_site_001_Data_Triggers_Github_github_metadata[api][url][type]" string => "string";
+      "__Deploy_demo_site_001_Data_Triggers_Github_github_metadata[authors]" slist => { "Ted Zlatanov <tzz@lifelogs.com>" };
+      "__Deploy_demo_site_001_Data_Triggers_Github_github_metadata[depends]" slist => { "CFEngine::stdlib", "Cloud::Services::AWS::S3", "VCS::vcs_mirror" };
+      "__Deploy_demo_site_001_Data_Triggers_Github_github_metadata[license]" string => "MIT";
+      "__Deploy_demo_site_001_Data_Triggers_Github_github_metadata[location]" string => "sketches/utilities/triggers_github";
+      "__Deploy_demo_site_001_Data_Triggers_Github_github_metadata[manifest]" slist => { "README.md", "github.cf" };
+      "__Deploy_demo_site_001_Data_Triggers_Github_github_metadata[manifest_cf]" slist => { "github.cf" };
+      "__Deploy_demo_site_001_Data_Triggers_Github_github_metadata[manifest_docs]" slist => { "README.md" };
+      "__Deploy_demo_site_001_Data_Triggers_Github_github_metadata[manifest_exe]" slist => { "cf_null" };
+      "__Deploy_demo_site_001_Data_Triggers_Github_github_metadata[manifest_extra]" slist => { "cf_null" };
+      "__Deploy_demo_site_001_Data_Triggers_Github_github_metadata[manifest_test]" slist => { "cf_null" };
+      "__Deploy_demo_site_001_Data_Triggers_Github_github_metadata[name]" string => "Data::Triggers::Github";
+      "__Deploy_demo_site_001_Data_Triggers_Github_github_metadata[tags]" slist => { "classes", "trigger", "notification", "github", "sketchify_generated", "persistent", "enterprise_compatible" };
+      "__Deploy_demo_site_001_Data_Triggers_Github_github_metadata[version]" string => "1.0";
+
+      # array 'metadata' from definition sketch metadata, activation __jenkins_builds_002_Data_Triggers_Jenkins_jenkins
+      "__jenkins_builds_002_Data_Triggers_Jenkins_jenkins_metadata[activation][identifier]" string => "jenkins builds";
+      "__jenkins_builds_002_Data_Triggers_Jenkins_jenkins_metadata[activation][timestamp]" string => "1381477430";
+      "__jenkins_builds_002_Data_Triggers_Jenkins_jenkins_metadata[api][destination][type]" string => "string";
+      "__jenkins_builds_002_Data_Triggers_Jenkins_jenkins_metadata[api][metadata][type]" string => "metadata";
+      "__jenkins_builds_002_Data_Triggers_Jenkins_jenkins_metadata[api][module_namespace][type]" string => "string";
+      "__jenkins_builds_002_Data_Triggers_Jenkins_jenkins_metadata[api][module_run][type]" string => "string";
+      "__jenkins_builds_002_Data_Triggers_Jenkins_jenkins_metadata[api][runenv][type]" string => "environment";
+      "__jenkins_builds_002_Data_Triggers_Jenkins_jenkins_metadata[api][source_suffix][type]" string => "string";
+      "__jenkins_builds_002_Data_Triggers_Jenkins_jenkins_metadata[authors]" slist => { "Ted Zlatanov <tzz@lifelogs.com>" };
+      "__jenkins_builds_002_Data_Triggers_Jenkins_jenkins_metadata[depends]" slist => { "CFEngine::stdlib", "Utilities::Staging" };
+      "__jenkins_builds_002_Data_Triggers_Jenkins_jenkins_metadata[license]" string => "MIT";
+      "__jenkins_builds_002_Data_Triggers_Jenkins_jenkins_metadata[location]" string => "sketches/utilities/triggers_jenkins";
+      "__jenkins_builds_002_Data_Triggers_Jenkins_jenkins_metadata[manifest]" slist => { "README.md", "jenkins.cf" };
+      "__jenkins_builds_002_Data_Triggers_Jenkins_jenkins_metadata[manifest_cf]" slist => { "jenkins.cf" };
+      "__jenkins_builds_002_Data_Triggers_Jenkins_jenkins_metadata[manifest_docs]" slist => { "README.md" };
+      "__jenkins_builds_002_Data_Triggers_Jenkins_jenkins_metadata[manifest_exe]" slist => { "cf_null" };
+      "__jenkins_builds_002_Data_Triggers_Jenkins_jenkins_metadata[manifest_extra]" slist => { "cf_null" };
+      "__jenkins_builds_002_Data_Triggers_Jenkins_jenkins_metadata[manifest_test]" slist => { "cf_null" };
+      "__jenkins_builds_002_Data_Triggers_Jenkins_jenkins_metadata[name]" string => "Data::Triggers::Jenkins";
+      "__jenkins_builds_002_Data_Triggers_Jenkins_jenkins_metadata[tags]" slist => { "classes", "trigger", "notification", "sketchify_generated", "jenkins", "persistent", "enterprise_compatible" };
+      "__jenkins_builds_002_Data_Triggers_Jenkins_jenkins_metadata[version]" string => "1.0";
+
+      # array 'metadata' from definition sketch metadata, activation __Install_Jenkins_on_policy_hub_003_Packages_installed_installed
+      "__Install_Jenkins_on_policy_hub_003_Packages_installed_installed_metadata[activation][identifier]" string => "Install Jenkins on policy hub";
+      "__Install_Jenkins_on_policy_hub_003_Packages_installed_installed_metadata[activation][timestamp]" string => "1381340350";
+      "__Install_Jenkins_on_policy_hub_003_Packages_installed_installed_metadata[api][][type]" string => "bundle_options";
+      "__Install_Jenkins_on_policy_hub_003_Packages_installed_installed_metadata[api][metadata][type]" string => "metadata";
+      "__Install_Jenkins_on_policy_hub_003_Packages_installed_installed_metadata[api][pkgs_add][type]" string => "list";
+      "__Install_Jenkins_on_policy_hub_003_Packages_installed_installed_metadata[api][runenv][type]" string => "environment";
+      "__Install_Jenkins_on_policy_hub_003_Packages_installed_installed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
+      "__Install_Jenkins_on_policy_hub_003_Packages_installed_installed_metadata[bundle_options][name]" string => "";
+      "__Install_Jenkins_on_policy_hub_003_Packages_installed_installed_metadata[bundle_options][single_use]" string => "1";
+      "__Install_Jenkins_on_policy_hub_003_Packages_installed_installed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
+      "__Install_Jenkins_on_policy_hub_003_Packages_installed_installed_metadata[license]" string => "MIT";
+      "__Install_Jenkins_on_policy_hub_003_Packages_installed_installed_metadata[location]" string => "sketches/package_management/packages_installed";
+      "__Install_Jenkins_on_policy_hub_003_Packages_installed_installed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json", "test.cf", "test.pl" };
+      "__Install_Jenkins_on_policy_hub_003_Packages_installed_installed_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
+      "__Install_Jenkins_on_policy_hub_003_Packages_installed_installed_metadata[manifest_docs]" slist => { "README.md" };
+      "__Install_Jenkins_on_policy_hub_003_Packages_installed_installed_metadata[manifest_exe]" slist => { "cf_null" };
+      "__Install_Jenkins_on_policy_hub_003_Packages_installed_installed_metadata[manifest_extra]" slist => { "params/demo.json" };
+      "__Install_Jenkins_on_policy_hub_003_Packages_installed_installed_metadata[manifest_test]" slist => { "test.pl" };
+      "__Install_Jenkins_on_policy_hub_003_Packages_installed_installed_metadata[name]" string => "Packages::installed";
+      "__Install_Jenkins_on_policy_hub_003_Packages_installed_installed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
+      "__Install_Jenkins_on_policy_hub_003_Packages_installed_installed_metadata[version]" string => "1.0.0";
+
+      # list 'pkgs_add' from definition 0a52e337f9c7fd243b8f897f54f2338f, activation __Install_Jenkins_on_policy_hub_003_Packages_installed_installed
+      "__Install_Jenkins_on_policy_hub_003_Packages_installed_installed_pkgs_add" slist => { "jenkins" };
+
+      # array 'mymetadata' from definition sketch metadata, activation __interwebs_004_Demo_SimpleApplication_Deploy_deploy
+      "__interwebs_004_Demo_SimpleApplication_Deploy_deploy_mymetadata[activation][identifier]" string => "interwebs";
+      "__interwebs_004_Demo_SimpleApplication_Deploy_deploy_mymetadata[activation][timestamp]" string => "1381498326";
+      "__interwebs_004_Demo_SimpleApplication_Deploy_deploy_mymetadata[api][enable][type]" string => "boolean";
+      "__interwebs_004_Demo_SimpleApplication_Deploy_deploy_mymetadata[api][mymetadata][type]" string => "metadata";
+      "__interwebs_004_Demo_SimpleApplication_Deploy_deploy_mymetadata[api][runenv][type]" string => "environment";
+      "__interwebs_004_Demo_SimpleApplication_Deploy_deploy_mymetadata[api][type][type]" string => "string";
+      "__interwebs_004_Demo_SimpleApplication_Deploy_deploy_mymetadata[api][workers][type]" string => "string";
+      "__interwebs_004_Demo_SimpleApplication_Deploy_deploy_mymetadata[authors]" slist => { "Ted Zlatanov <tzz@lifelogs.com>" };
+      "__interwebs_004_Demo_SimpleApplication_Deploy_deploy_mymetadata[depends]" slist => { "Cloud::Services::AWS::EC2", "Cloud::Services::OpenStack", "Cloud::Services::VMWare", "Demo::SimpleApplication" };
+      "__interwebs_004_Demo_SimpleApplication_Deploy_deploy_mymetadata[license]" string => "MIT";
+      "__interwebs_004_Demo_SimpleApplication_Deploy_deploy_mymetadata[location]" string => "sketches/demo/simpleapplication-deploy";
+      "__interwebs_004_Demo_SimpleApplication_Deploy_deploy_mymetadata[manifest]" slist => { "README.md", "deploy.cf", "params/demo.json" };
+      "__interwebs_004_Demo_SimpleApplication_Deploy_deploy_mymetadata[manifest_cf]" slist => { "deploy.cf" };
+      "__interwebs_004_Demo_SimpleApplication_Deploy_deploy_mymetadata[manifest_docs]" slist => { "README.md" };
+      "__interwebs_004_Demo_SimpleApplication_Deploy_deploy_mymetadata[manifest_exe]" slist => { "cf_null" };
+      "__interwebs_004_Demo_SimpleApplication_Deploy_deploy_mymetadata[manifest_extra]" slist => { "params/demo.json" };
+      "__interwebs_004_Demo_SimpleApplication_Deploy_deploy_mymetadata[manifest_test]" slist => { "cf_null" };
+      "__interwebs_004_Demo_SimpleApplication_Deploy_deploy_mymetadata[name]" string => "Demo::SimpleApplication::Deploy";
+      "__interwebs_004_Demo_SimpleApplication_Deploy_deploy_mymetadata[tags]" slist => { "vmware", "ensure", "deploy", "demo", "sketchify_generated", "enterprise_compatible" };
+      "__interwebs_004_Demo_SimpleApplication_Deploy_deploy_mymetadata[version]" string => "1.1";
+
   methods:
     any::
       "cfsketch_g" usebundle => "cfsketch_g";
+      "092b04a40fdd4cb8bfdb685f2c4a0328" usebundle => "092b04a40fdd4cb8bfdb685f2c4a0328";
+      "f2a5cdf7b92bab5571c24172112c6fa7" usebundle => "f2a5cdf7b92bab5571c24172112c6fa7";
+
+    runenv_f2a5cdf7b92bab5571c24172112c6fa7_activated::
+      "__Deploy_demo_site_001_Data_Triggers_Github_github" usebundle => cfdc_triggers:github("f2a5cdf7b92bab5571c24172112c6fa7", "default:cfsketch_run.__Deploy_demo_site_001_Data_Triggers_Github_github_metadata", "https://github.com/zzamboni/simplesite", "master", "cfe_demosite", "~/.netrc"), ifvarclass => "(linux)", useresult => "return___Deploy_demo_site_001_Data_Triggers_Github_github";
+    runenv_f2a5cdf7b92bab5571c24172112c6fa7_activated::
+      "__jenkins_builds_002_Data_Triggers_Jenkins_jenkins" usebundle => cfdc_triggers:jenkins("f2a5cdf7b92bab5571c24172112c6fa7", "default:cfsketch_run.__jenkins_builds_002_Data_Triggers_Jenkins_jenkins_metadata", "/tmp/jenkins-postbuild", "jenkins_postbuild", "phpartifacts/", "/var/cfengine/masterfiles/files/var/www/php-site/"), ifvarclass => "(linux)", useresult => "return___jenkins_builds_002_Data_Triggers_Jenkins_jenkins";
+    runenv_f2a5cdf7b92bab5571c24172112c6fa7_activated::
+      "__Install_Jenkins_on_policy_hub_003_Packages_installed_installed" usebundle => cfdc_packages:installed("f2a5cdf7b92bab5571c24172112c6fa7", "default:cfsketch_run.__Install_Jenkins_on_policy_hub_003_Packages_installed_installed_metadata", @(cfsketch_run.__Install_Jenkins_on_policy_hub_003_Packages_installed_installed_pkgs_add)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___Install_Jenkins_on_policy_hub_003_Packages_installed_installed";
+    runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
+      "__interwebs_004_Demo_SimpleApplication_Deploy_deploy" usebundle => cfdc_simpleapplication:deploy("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__interwebs_004_Demo_SimpleApplication_Deploy_deploy_mymetadata", "12", "ec2", "1"), ifvarclass => "(linux)", useresult => "return___interwebs_004_Demo_SimpleApplication_Deploy_deploy";
 
   reports:
-    cfengine::
+    inform_mode::
+      "activation __Deploy_demo_site_001_Data_Triggers_Github_github could not run because it requires classes (linux)" ifvarclass => "inform_mode.!((linux))";
+      "activation __jenkins_builds_002_Data_Triggers_Jenkins_jenkins could not run because it requires classes (linux)" ifvarclass => "inform_mode.!((linux))";
+      "activation __Install_Jenkins_on_policy_hub_003_Packages_installed_installed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
+      "activation __interwebs_004_Demo_SimpleApplication_Deploy_deploy could not run because it requires classes (linux)" ifvarclass => "inform_mode.!((linux))";
 }
